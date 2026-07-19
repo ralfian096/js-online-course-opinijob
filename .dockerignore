@@ -1,0 +1,11 @@
+.git
+.gitignore
+node_modules
+npm-debug.log*
+API/.env
+API/node_modules
+API/vendor
+API/storage/logs/*
+API/storage/framework/cache/data/*
+API/storage/framework/sessions/*
+API/storage/framework/views/*

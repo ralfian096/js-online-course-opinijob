@@ -4,9 +4,13 @@
   "scripts": {
     "setup": "npm run install:api",
     "install:api": "composer install --working-dir=API",
-    "dev": "concurrently \"npm run dev:api\" \"npm run dev:html\"",
+    "dev": "npm run dev:split",
+    "dev:split": "concurrently \"npm run dev:api\" \"npm run dev:html\"",
+    "dev:mono": "concurrently \"npm run watch:html\" \"npm run dev:api\"",
     "dev:api": "php API/artisan serve --host=127.0.0.1 --port=8000",
     "dev:html": "http-server ./HTML -a 127.0.0.1 -p 5500 -c-1",
+    "sync:html": "node scripts/sync-html.mjs",
+    "watch:html": "node scripts/sync-html.mjs --watch",
     "key:generate": "php API/artisan key:generate",
     "migrate": "php API/artisan migrate",
     "migrate:fresh": "php API/artisan migrate:fresh --seed"
