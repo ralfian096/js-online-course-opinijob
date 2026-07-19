@@ -22,7 +22,8 @@ RUN apt-get update \
         pdo_pgsql \
         xml \
         zip \
-    && a2enmod rewrite \
+    && a2dismod mpm_event mpm_worker || true \
+    && a2enmod mpm_prefork rewrite \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /var/www
