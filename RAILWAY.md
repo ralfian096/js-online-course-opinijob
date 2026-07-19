@@ -5,6 +5,7 @@
 - Source frontend tetap ada di `HTML/`.
 - Laravel tetap ada di `API/`.
 - Saat deploy, `Dockerfile` akan menyalin isi `HTML/` ke `API/public/`.
+- Runtime production memakai `php artisan serve` di dalam container, tanpa Apache kustom.
 
 ## Local Development
 
@@ -23,6 +24,7 @@
 2. Railway akan memakai `Dockerfile` di root.
 3. Tambahkan database Railway, lalu isi environment variable Laravel.
 4. Generate public domain untuk service app.
+5. Railway akan memberikan `PORT` otomatis dan container akan memakainya saat start.
 
 ## Environment Variable Minimum
 
@@ -42,3 +44,8 @@
 - Default container tidak menjalankan migrasi otomatis.
 - Jika ingin migrasi otomatis saat start, set `RUN_MIGRATIONS=true`.
 - Untuk production, tetap lebih aman menjalankan migrasi dengan kontrol yang jelas saat deploy.
+
+## Catatan Runtime
+
+- Setup ini sengaja dibuat sederhana agar mirip deploy Laravel standar yang sukses di Railway.
+- Jika build sukses, container akan menjalankan `php artisan serve --host=0.0.0.0 --port=$PORT`.
