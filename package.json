@@ -1,0 +1,18 @@
+{
+  "name": "tutor-online-monolith",
+  "private": true,
+  "scripts": {
+    "setup": "npm run install:api",
+    "install:api": "composer install --working-dir=API",
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:html\"",
+    "dev:api": "php API/artisan serve --host=127.0.0.1 --port=8000",
+    "dev:html": "http-server ./HTML -a 127.0.0.1 -p 5500 -c-1",
+    "key:generate": "php API/artisan key:generate",
+    "migrate": "php API/artisan migrate",
+    "migrate:fresh": "php API/artisan migrate:fresh --seed"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "http-server": "^14.1.1"
+  }
+}
