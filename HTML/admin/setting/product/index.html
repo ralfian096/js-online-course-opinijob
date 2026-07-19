@@ -1,158 +1,153 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin - Setting Produk</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <div class="admin-shell">
-      <aside class="sidebar">
-        <div class="sidebar__brand">Opini Job</div>
-        <nav class="sidebar__nav">
-          <a href="#" class="sidebar__link">Dashboard</a>
-          <a href="#" class="sidebar__link is-active">Setting Produk</a>
-          <a href="../product-category/index.html" class="sidebar__link">Kategori Produk</a>
-          <a href="../product-price/index.html" class="sidebar__link">Daftar Harga</a>
-        </nav>
-      </aside>
 
-      <div class="content-shell">
-        <header class="topbar">
-          <div>
-            <p class="topbar__eyebrow">Admin / Setting</p>
-            <h1>Kelola Produk</h1>
-          </div>
-          <div class="topbar__user">Admin</div>
-        </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Setting Produk</title>
+  <link rel="stylesheet" href="/admin/setting/product/style.css" />
+</head>
 
-        <main class="content">
-          <section class="panel panel--header">
-            <div>
-              <h2>Setting Produk</h2>
-              <p>Kelola daftar produk yang tersedia.</p>
-            </div>
-            <span class="badge">3 Produk</span>
-          </section>
+<body>
+  <div class="admin-shell">
+    <aside class="sidebar">
+      <div class="sidebar__brand">Opini Job</div>
+      <nav class="sidebar__nav">
+        <a href="#" class="sidebar__link">Dashboard</a>
+        <a href="#" class="sidebar__link is-active">Setting Produk</a>
+        <a href="/admin/setting/product-category/index.html" class="sidebar__link">Kategori Produk</a>
+        <a href="/admin/setting/product-price/index.html" class="sidebar__link">Daftar Harga</a>
+      </nav>
+    </aside>
 
-          <section class="panel">
-            <div class="toolbar">
-              <div class="toolbar__search">
-                <input
-                  type="search"
-                  id="searchProduct"
-                  placeholder="Cari nama atau kode produk..."
-                />
-              </div>
-              <button type="button" class="button button--outline" id="resetProductFilter">Reset</button>
-              <button type="button" class="button button--outline" id="refreshProductTable">Refresh</button>
-              <button type="button" class="button button--primary" id="openProductModal">Tambah Produk</button>
-            </div>
-
-            <div class="table-wrapper">
-              <table>
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Kode</th>
-                    <th>Nama</th>
-                    <th>Deskripsi</th>
-                    <th>Status</th>
-                    <th class="table-action">Aksi</th>
-                  </tr>
-                </thead>
-                <tbody id="productTableBody">
-                  <tr data-search="prd-ris riset kuantitatif produk untuk survei kuantitatif aktif">
-                    <td>prd-ris</td>
-                    <td>PRD-RIS</td>
-                    <td>Riset Kuantitatif</td>
-                    <td>Produk untuk survei kuantitatif skala besar.</td>
-                    <td><span class="status status--active">Aktif</span></td>
-                    <td class="table-action">
-                      <button type="button" class="icon-button" data-edit-product>Ubah</button>
-                      <button type="button" class="icon-button icon-button--danger" data-delete-product>Hapus</button>
-                    </td>
-                  </tr>
-                  <tr data-search="prd-fgd fgd online produk untuk focus group discussion aktif">
-                    <td>prd-fgd</td>
-                    <td>PRD-FGD</td>
-                    <td>FGD Online</td>
-                    <td>Produk untuk focus group discussion berbasis video call.</td>
-                    <td><span class="status status--active">Aktif</span></td>
-                    <td class="table-action">
-                      <button type="button" class="icon-button" data-edit-product>Ubah</button>
-                      <button type="button" class="icon-button icon-button--danger" data-delete-product>Hapus</button>
-                    </td>
-                  </tr>
-                  <tr data-search="prd-aud audit lapangan produk observasi dan audit tidak aktif">
-                    <td>prd-aud</td>
-                    <td>PRD-AUD</td>
-                    <td>Audit Lapangan</td>
-                    <td>Produk untuk observasi lapangan dan audit outlet.</td>
-                    <td><span class="status status--inactive">Tidak Aktif</span></td>
-                    <td class="table-action">
-                      <button type="button" class="icon-button" data-edit-product>Ubah</button>
-                      <button type="button" class="icon-button icon-button--danger" data-delete-product>Hapus</button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div class="pagination">
-              <p>Halaman 1 dari 1</p>
-              <div class="pagination__actions">
-                <button type="button" class="button button--outline" disabled>Sebelumnya</button>
-                <button type="button" class="button button--outline" disabled>Berikutnya</button>
-              </div>
-            </div>
-          </section>
-        </main>
-      </div>
-    </div>
-
-    <div class="modal" id="productModal" hidden>
-      <div class="modal__dialog">
-        <div class="modal__header">
-          <div>
-            <h3>Tambah Produk</h3>
-            <p>Isi data produk baru.</p>
-          </div>
-          <button type="button" class="modal__close" id="closeProductModal">×</button>
+    <div class="content-shell">
+      <header class="topbar">
+        <div>
+          <p class="topbar__eyebrow">Admin / Setting</p>
+          <h1>Kelola Produk</h1>
         </div>
+        <div class="topbar__user">Admin</div>
+      </header>
 
-        <form class="modal__form" id="productForm">
-          <div class="form-group">
-            <label for="productName">Nama</label>
-            <input id="productName" name="productName" type="text" placeholder="Nama produk" required />
+      <main class="content">
+        <section class="panel panel--header">
+          <div>
+            <h2>Setting Produk</h2>
+            <p>Kelola daftar produk yang tersedia.</p>
           </div>
-          <div class="form-group">
-            <label for="productCode">Kode</label>
-            <input id="productCode" name="productCode" type="text" placeholder="Kode produk" required />
-          </div>
-          <div class="form-group">
-            <label for="productDescription">Deskripsi</label>
-            <textarea
-              id="productDescription"
-              name="productDescription"
-              rows="4"
-              placeholder="Deskripsi produk"
-            ></textarea>
-          </div>
-          <label class="checkbox-row">
-            <input type="checkbox" checked />
-            <span>Produk aktif</span>
-          </label>
+          <span class="badge">3 Produk</span>
+        </section>
 
-          <div class="modal__footer">
-            <button type="button" class="button button--outline" id="cancelProductModal">Batal</button>
-            <button type="submit" class="button button--primary">Simpan</button>
+        <section class="panel">
+          <div class="toolbar">
+            <div class="toolbar__search">
+              <input type="search" id="searchProduct" placeholder="Cari nama atau kode produk..." />
+            </div>
+            <button type="button" class="button button--outline" id="resetProductFilter">Reset</button>
+            <button type="button" class="button button--outline" id="refreshProductTable">Refresh</button>
+            <button type="button" class="button button--primary" id="openProductModal">Tambah Produk</button>
           </div>
-        </form>
-      </div>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Kode</th>
+                  <th>Nama</th>
+                  <th>Deskripsi</th>
+                  <th>Status</th>
+                  <th class="table-action">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="productTableBody">
+                <tr data-search="prd-ris riset kuantitatif produk untuk survei kuantitatif aktif">
+                  <td>prd-ris</td>
+                  <td>PRD-RIS</td>
+                  <td>Riset Kuantitatif</td>
+                  <td>Produk untuk survei kuantitatif skala besar.</td>
+                  <td><span class="status status--active">Aktif</span></td>
+                  <td class="table-action">
+                    <button type="button" class="icon-button" data-edit-product>Ubah</button>
+                    <button type="button" class="icon-button icon-button--danger" data-delete-product>Hapus</button>
+                  </td>
+                </tr>
+                <tr data-search="prd-fgd fgd online produk untuk focus group discussion aktif">
+                  <td>prd-fgd</td>
+                  <td>PRD-FGD</td>
+                  <td>FGD Online</td>
+                  <td>Produk untuk focus group discussion berbasis video call.</td>
+                  <td><span class="status status--active">Aktif</span></td>
+                  <td class="table-action">
+                    <button type="button" class="icon-button" data-edit-product>Ubah</button>
+                    <button type="button" class="icon-button icon-button--danger" data-delete-product>Hapus</button>
+                  </td>
+                </tr>
+                <tr data-search="prd-aud audit lapangan produk observasi dan audit tidak aktif">
+                  <td>prd-aud</td>
+                  <td>PRD-AUD</td>
+                  <td>Audit Lapangan</td>
+                  <td>Produk untuk observasi lapangan dan audit outlet.</td>
+                  <td><span class="status status--inactive">Tidak Aktif</span></td>
+                  <td class="table-action">
+                    <button type="button" class="icon-button" data-edit-product>Ubah</button>
+                    <button type="button" class="icon-button icon-button--danger" data-delete-product>Hapus</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="pagination">
+            <p>Halaman 1 dari 1</p>
+            <div class="pagination__actions">
+              <button type="button" class="button button--outline" disabled>Sebelumnya</button>
+              <button type="button" class="button button--outline" disabled>Berikutnya</button>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
+  </div>
 
-    <script src="./script.js"></script>
-  </body>
+  <div class="modal" id="productModal" hidden>
+    <div class="modal__dialog">
+      <div class="modal__header">
+        <div>
+          <h3>Tambah Produk</h3>
+          <p>Isi data produk baru.</p>
+        </div>
+        <button type="button" class="modal__close" id="closeProductModal">×</button>
+      </div>
+
+      <form class="modal__form" id="productForm">
+        <div class="form-group">
+          <label for="productName">Nama</label>
+          <input id="productName" name="productName" type="text" placeholder="Nama produk" required />
+        </div>
+        <div class="form-group">
+          <label for="productCode">Kode</label>
+          <input id="productCode" name="productCode" type="text" placeholder="Kode produk" required />
+        </div>
+        <div class="form-group">
+          <label for="productDescription">Deskripsi</label>
+          <textarea id="productDescription" name="productDescription" rows="4"
+            placeholder="Deskripsi produk"></textarea>
+        </div>
+        <label class="checkbox-row">
+          <input type="checkbox" checked />
+          <span>Produk aktif</span>
+        </label>
+
+        <div class="modal__footer">
+          <button type="button" class="button button--outline" id="cancelProductModal">Batal</button>
+          <button type="submit" class="button button--primary">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/admin/setting/product/script.js"></script>
+</body>
+
 </html>

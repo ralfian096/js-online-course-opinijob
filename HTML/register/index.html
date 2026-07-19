@@ -1,154 +1,142 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register - Opini Job</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <main class="register-page">
-      <section class="register-card">
-        <div class="register-panel register-panel--form">
-          <div class="register-copy">
-            <h1>Daftar Akun</h1>
-            <p>Buat akun untuk dapat mengakses halaman dashboard Opini Job.</p>
-          </div>
 
-          <p class="form-alert" hidden>Pendaftaran gagal. Silakan periksa kembali data Anda.</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register - Opini Job</title>
+  <link rel="stylesheet" href="/register/style.css" />
+</head>
 
-          <form id="registerForm" class="register-form">
-            <div class="form-group">
-              <label for="name">Nama lengkap</label>
-              <input id="name" name="name" type="text" placeholder="Nama sesuai KTP" required />
-            </div>
-
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="nama@email.com" required />
-              <small class="field-error" data-error-for="email"></small>
-            </div>
-
-            <div class="form-group">
-              <label for="phoneNational">Nomor telepon</label>
-              <div class="phone-field">
-                <span class="phone-prefix">62</span>
-                <input
-                  id="phoneNational"
-                  name="phoneNational"
-                  type="tel"
-                  inputmode="numeric"
-                  placeholder="8xxxxxxxxxx"
-                  required
-                />
-                <button type="button" class="button button--outline" id="verifyPhoneButton">
-                  Verifikasi
-                </button>
-              </div>
-              <small class="field-help">Format nomor mengikuti contoh 812xxxxxxx tanpa angka 0 di depan.</small>
-              <small class="field-error" data-error-for="phone"></small>
-              <p class="phone-status" id="phoneStatus">Belum terverifikasi</p>
-            </div>
-
-            <div class="form-group">
-              <label for="password">Password akun</label>
-              <div class="password-field">
-                <input id="password" name="password" type="password" required />
-                <button type="button" class="ghost-button" data-toggle-password="#password">
-                  Tampilkan
-                </button>
-              </div>
-              <ul class="password-checklist">
-                <li data-rule="minLength">Minimal 8 karakter</li>
-                <li data-rule="upperLower">Ada huruf kapital dan huruf kecil</li>
-                <li data-rule="special">Ada karakter spesial</li>
-              </ul>
-            </div>
-
-            <div class="form-group">
-              <label for="passwordConfirmation">Konfirmasi password</label>
-              <div class="password-field">
-                <input
-                  id="passwordConfirmation"
-                  name="passwordConfirmation"
-                  type="password"
-                  required
-                />
-                <button
-                  type="button"
-                  class="ghost-button"
-                  data-toggle-password="#passwordConfirmation"
-                >
-                  Tampilkan
-                </button>
-              </div>
-              <small class="field-error" data-error-for="passwordConfirmation"></small>
-            </div>
-
-            <button type="submit" class="button button--primary button--block" id="submitRegister" disabled>
-              Daftar
-            </button>
-          </form>
-
-          <div class="separator"><span>Atau daftar dengan</span></div>
-
-          <button type="button" class="button button--outline button--block">Google</button>
-
-          <p class="auth-footer-text">
-            Sudah punya akun?
-            <a href="../login/index.html" class="text-link">Masuk</a>
-          </p>
+<body>
+  <main class="register-page">
+    <section class="register-card">
+      <div class="register-panel register-panel--form">
+        <div class="register-copy">
+          <h1>Daftar Akun</h1>
+          <p>Buat akun untuk dapat mengakses halaman dashboard Opini Job.</p>
         </div>
 
-        <aside class="register-panel register-panel--visual">
-          <div class="brand-copy">
-            <span class="brand-mark">OJ</span>
-            <h2>Platform survei dan rekrutmen terpercaya</h2>
-            <p>Mudah, cepat, aman, dan siap dipakai untuk kebutuhan client maupun talent.</p>
-            <ul class="brand-benefits">
-              <li>Mudah & Cepat</li>
-              <li>Aman & Terpercaya</li>
-              <li>Dukungan 24/7</li>
+        <p class="form-alert" hidden>Pendaftaran gagal. Silakan periksa kembali data Anda.</p>
+
+        <form id="registerForm" class="register-form">
+          <div class="form-group">
+            <label for="name">Nama lengkap</label>
+            <input id="name" name="name" type="text" placeholder="Nama sesuai KTP" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="nama@email.com" required />
+            <small class="field-error" data-error-for="email"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="phoneNational">Nomor telepon</label>
+            <div class="phone-field">
+              <span class="phone-prefix">62</span>
+              <input id="phoneNational" name="phoneNational" type="tel" inputmode="numeric" placeholder="8xxxxxxxxxx"
+                required />
+              <button type="button" class="button button--outline" id="verifyPhoneButton">
+                Verifikasi
+              </button>
+            </div>
+            <small class="field-help">Format nomor mengikuti contoh 812xxxxxxx tanpa angka 0 di depan.</small>
+            <small class="field-error" data-error-for="phone"></small>
+            <p class="phone-status" id="phoneStatus">Belum terverifikasi</p>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password akun</label>
+            <div class="password-field">
+              <input id="password" name="password" type="password" required />
+              <button type="button" class="ghost-button" data-toggle-password="#password">
+                Tampilkan
+              </button>
+            </div>
+            <ul class="password-checklist">
+              <li data-rule="minLength">Minimal 8 karakter</li>
+              <li data-rule="upperLower">Ada huruf kapital dan huruf kecil</li>
+              <li data-rule="special">Ada karakter spesial</li>
             </ul>
           </div>
-        </aside>
-      </section>
 
-      <p class="legal-copy">
-        Dengan mendaftar, Anda menyetujui <a href="#">Ketentuan Layanan</a> dan
-        <a href="#">Kebijakan Privasi</a>.
-      </p>
-    </main>
+          <div class="form-group">
+            <label for="passwordConfirmation">Konfirmasi password</label>
+            <div class="password-field">
+              <input id="passwordConfirmation" name="passwordConfirmation" type="password" required />
+              <button type="button" class="ghost-button" data-toggle-password="#passwordConfirmation">
+                Tampilkan
+              </button>
+            </div>
+            <small class="field-error" data-error-for="passwordConfirmation"></small>
+          </div>
 
-    <div class="otp-modal" id="otpModal" hidden>
-      <div class="otp-dialog" role="dialog" aria-modal="true" aria-labelledby="otpTitle">
-        <button type="button" class="otp-close" id="closeOtpModal" aria-label="Tutup modal">×</button>
-        <h2 id="otpTitle">Verifikasi Nomor Telepon</h2>
-        <p class="otp-copy">
-          OTP dikirim ke <strong id="otpPhoneLabel">+628123456789</strong>
+          <button type="submit" class="button button--primary button--block" id="submitRegister" disabled>
+            Daftar
+          </button>
+        </form>
+
+        <div class="separator"><span>Atau daftar dengan</span></div>
+
+        <button type="button" class="button button--outline button--block">Google</button>
+
+        <p class="auth-footer-text">
+          Sudah punya akun?
+          <a href="/login/index.html" class="text-link">Masuk</a>
         </p>
-
-        <div class="otp-inputs">
-          <input type="text" maxlength="1" inputmode="numeric" />
-          <input type="text" maxlength="1" inputmode="numeric" />
-          <input type="text" maxlength="1" inputmode="numeric" />
-          <input type="text" maxlength="1" inputmode="numeric" />
-          <input type="text" maxlength="1" inputmode="numeric" />
-          <input type="text" maxlength="1" inputmode="numeric" />
-        </div>
-
-        <button type="button" class="button button--primary button--block" id="verifyOtpButton" disabled>
-          Verifikasi OTP
-        </button>
-
-        <button type="button" class="button button--ghost button--block" id="resendOtpButton">
-          Kirim Ulang OTP
-        </button>
-
-        <p class="otp-timer" id="otpTimer">Kirim ulang dalam 03:00</p>
       </div>
-    </div>
 
-    <script src="./script.js"></script>
-  </body>
+      <aside class="register-panel register-panel--visual">
+        <div class="brand-copy">
+          <span class="brand-mark">OJ</span>
+          <h2>Platform survei dan rekrutmen terpercaya</h2>
+          <p>Mudah, cepat, aman, dan siap dipakai untuk kebutuhan client maupun talent.</p>
+          <ul class="brand-benefits">
+            <li>Mudah & Cepat</li>
+            <li>Aman & Terpercaya</li>
+            <li>Dukungan 24/7</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <p class="legal-copy">
+      Dengan mendaftar, Anda menyetujui <a href="#">Ketentuan Layanan</a> dan
+      <a href="#">Kebijakan Privasi</a>.
+    </p>
+  </main>
+
+  <div class="otp-modal" id="otpModal" hidden>
+    <div class="otp-dialog" role="dialog" aria-modal="true" aria-labelledby="otpTitle">
+      <button type="button" class="otp-close" id="closeOtpModal" aria-label="Tutup modal">×</button>
+      <h2 id="otpTitle">Verifikasi Nomor Telepon</h2>
+      <p class="otp-copy">
+        OTP dikirim ke <strong id="otpPhoneLabel">+628123456789</strong>
+      </p>
+
+      <div class="otp-inputs">
+        <input type="text" maxlength="1" inputmode="numeric" />
+        <input type="text" maxlength="1" inputmode="numeric" />
+        <input type="text" maxlength="1" inputmode="numeric" />
+        <input type="text" maxlength="1" inputmode="numeric" />
+        <input type="text" maxlength="1" inputmode="numeric" />
+        <input type="text" maxlength="1" inputmode="numeric" />
+      </div>
+
+      <button type="button" class="button button--primary button--block" id="verifyOtpButton" disabled>
+        Verifikasi OTP
+      </button>
+
+      <button type="button" class="button button--ghost button--block" id="resendOtpButton">
+        Kirim Ulang OTP
+      </button>
+
+      <p class="otp-timer" id="otpTimer">Kirim ulang dalam 03:00</p>
+    </div>
+  </div>
+
+  <script src="/register/script.js"></script>
+</body>
+
 </html>
